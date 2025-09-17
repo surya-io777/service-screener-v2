@@ -112,6 +112,17 @@ class Framework():
         if len(_m) == 0:
             return
         
+        # Handle checks without service prefix (like ECS checks)
+        if '.' not in _m:
+            check = _m
+            # Try to find the check in any service
+            for serv_name, serv_data in self.data.items():
+                if 'summary' in serv_data and check in serv_data['summary']:
+                    tmp = serv_data['summary'][check]
+                    ln = tmp.get('__links', '')
+                    return {"c": check, "d": tmp['shortDesc'], "r": tmp['__affectedResources'], "l": "<br>".join(ln)}
+            return {"c": check}
+        
         serv, check = _m.split(".")
         if check == '$length':
             cnt = self.getResourceCount(serv)
