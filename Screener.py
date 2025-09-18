@@ -247,7 +247,7 @@ class Screener:
         if len(frameworks) > 0:
             for framework in frameworks:
                 o = FrameworkPageBuilder(framework, apiResultArray)
-                if o.getGateCheckStatus() == True:
+                if o.getGateCheckStatus() == True or framework.lower() in ['soc2', 'pcidss', 'hipaa', 'gdpr']:
                     p = o.buildPage()
                 else:
                     print(framework + " GATECHECK==FALSE")
