@@ -1,0 +1,132 @@
+{
+    "NotebookEncryption": {
+        "category": "S",
+        "^description": "You have {$COUNT} SageMaker notebook instances without KMS encryption enabled. Encrypting notebook instances protects sensitive data and code stored on the instance.",
+        "shortDesc": "Enable KMS encryption for notebook instances",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Encrypting Amazon SageMaker notebook instances]<https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html>"
+        ]
+    },
+    "DirectInternetAccess": {
+        "category": "S",
+        "^description": "You have {$COUNT} SageMaker notebook instances with direct internet access enabled. Disabling direct internet access improves security by routing traffic through your VPC.",
+        "shortDesc": "Disable direct internet access for notebook instances",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Connect a notebook instance to resources in a VPC]<https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-notebook-and-internet-access.html>"
+        ]
+    },
+    "RootAccess": {
+        "category": "S",
+        "^description": "You have {$COUNT} SageMaker notebook instances with root access enabled. Disabling root access follows the principle of least privilege and improves security.",
+        "shortDesc": "Disable root access for notebook instances",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Control root access to a SageMaker notebook instance]<https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-root-access.html>"
+        ]
+    },
+    "VPCConfiguration": {
+        "category": "S",
+        "^description": "You have {$COUNT} SageMaker notebook instances not deployed in a VPC. Deploying in a VPC provides network isolation and better security controls.",
+        "shortDesc": "Deploy notebook instances in a VPC",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Connect a notebook instance to resources in a VPC]<https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-notebook-and-internet-access.html>"
+        ]
+    },
+    "EndpointEncryption": {
+        "category": "S",
+        "^description": "You have {$COUNT} SageMaker endpoints without KMS encryption enabled. Encrypting endpoints protects model data and inference requests.",
+        "shortDesc": "Enable KMS encryption for endpoints",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Encrypting Amazon SageMaker endpoints]<https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html>"
+        ]
+    },
+    "DataCaptureConfig": {
+        "category": "O",
+        "^description": "You have {$COUNT} SageMaker endpoints without data capture configured. Data capture helps with model monitoring and debugging.",
+        "shortDesc": "Configure data capture for endpoints",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Capture data from real-time endpoints]<https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html>"
+        ]
+    },
+    "AutoScaling": {
+        "category": "R",
+        "^description": "You have {$COUNT} SageMaker endpoints that may benefit from auto scaling configuration. Auto scaling helps handle varying inference loads efficiently.",
+        "shortDesc": "Consider configuring auto scaling for endpoints",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Automatically scale Amazon SageMaker models]<https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html>"
+        ]
+    },
+    "ModelNetworkIsolation": {
+        "category": "S",
+        "^description": "You have {$COUNT} SageMaker models without VPC configuration. VPC configuration provides network isolation for better security.",
+        "shortDesc": "Configure VPC for models",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Give SageMaker access to resources in your Amazon VPC]<https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html>"
+        ]
+    },
+    "ModelExecutionRole": {
+        "category": "S",
+        "^description": "You have {$COUNT} SageMaker models without proper execution role configuration. Proper IAM roles ensure secure access to resources.",
+        "shortDesc": "Configure proper execution roles for models",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[SageMaker roles]<https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>"
+        ]
+    },
+    "ModelArtifacts": {
+        "category": "R",
+        "^description": "You have {$COUNT} SageMaker models with improperly configured model artifacts. Model artifacts should be stored securely in S3.",
+        "shortDesc": "Ensure model artifacts are properly stored in S3",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Deploy models for inference]<https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html>"
+        ]
+    }
+}

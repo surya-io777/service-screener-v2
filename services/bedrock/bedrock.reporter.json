@@ -1,0 +1,106 @@
+{
+    "ModelAccess": {
+        "category": "S",
+        "^description": "You have {$COUNT} Bedrock models with access issues. Ensure proper model access permissions are configured for secure AI/ML operations.",
+        "shortDesc": "Configure proper model access permissions",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Model access in Amazon Bedrock]<https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html>"
+        ]
+    },
+    "ModelCustomization": {
+        "category": "O",
+        "^description": "You have {$COUNT} Bedrock models that support fine-tuning. Consider customizing models for better performance on your specific use cases.",
+        "shortDesc": "Consider model customization for better performance",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Custom models in Amazon Bedrock]<https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html>"
+        ]
+    },
+    "InferenceTypes": {
+        "category": "P",
+        "^description": "You have {$COUNT} Bedrock models with specific inference type support. Ensure you're using the appropriate inference type for optimal performance.",
+        "shortDesc": "Verify appropriate inference types are being used",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Inference in Amazon Bedrock]<https://docs.aws.amazon.com/bedrock/latest/userguide/inference.html>"
+        ]
+    },
+    "ModelGovernance": {
+        "category": "S",
+        "^description": "You have {$COUNT} Bedrock models without proper governance configuration. Implement model governance for compliance and security.",
+        "shortDesc": "Implement proper model governance",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Responsible AI with Amazon Bedrock]<https://docs.aws.amazon.com/bedrock/latest/userguide/responsible-ai.html>"
+        ]
+    },
+    "KnowledgeBaseEncryption": {
+        "category": "S",
+        "^description": "You have {$COUNT} Bedrock knowledge bases without proper encryption configuration. Enable encryption to protect sensitive data.",
+        "shortDesc": "Enable encryption for knowledge bases",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Knowledge bases for Amazon Bedrock]<https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html>"
+        ]
+    },
+    "DataSourceConfiguration": {
+        "category": "R",
+        "^description": "You have {$COUNT} Bedrock knowledge bases without active data sources. Configure data sources to enable knowledge base functionality.",
+        "shortDesc": "Configure active data sources for knowledge bases",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Data sources for knowledge bases]<https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html>"
+        ]
+    },
+    "KnowledgeBaseAccess": {
+        "category": "S",
+        "^description": "You have {$COUNT} Bedrock knowledge bases without proper IAM role configuration. Configure IAM roles for secure access control.",
+        "shortDesc": "Configure IAM roles for knowledge base access",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[IAM roles for knowledge bases]<https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-permissions.html>"
+        ]
+    },
+    "KnowledgeBaseStatus": {
+        "category": "R",
+        "^description": "You have {$COUNT} Bedrock knowledge bases in unhealthy states. Monitor and maintain knowledge base health for reliable operations.",
+        "shortDesc": "Monitor and maintain knowledge base health",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Monitoring Amazon Bedrock]<https://docs.aws.amazon.com/bedrock/latest/userguide/monitoring.html>"
+        ]
+    }
+}
