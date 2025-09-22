@@ -241,7 +241,7 @@ $(document).ready(function() {
         
     def generateCategoryBadge(self, category, addtionalHtmlAttr):
         validCategory = ['R', 'S', 'O', 'P', 'C', 'T']
-        colorByCategory = ['secondary', 'warning', 'dark', 'lime', 'info', 'info']
+        colorByCategory = ['lavender', 'deep-orange', 'dark-grey', 'lime-green', 'sky-blue', 'info']
         nameByCategory = ['Reliability', 'Security', 'Operation Excellence', 'Performance Efficiency', 'Cost Optimization', 'Text']
         if category not in validCategory:
             category = 'X'
