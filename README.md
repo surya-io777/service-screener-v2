@@ -1,20 +1,20 @@
-# Service Screener
+# QuadraRecon
 
 An open source guidance tool for the AWS environment. Click [here](https://dev.d11el1twchxpia.amplifyapp.com/index.html) for sample report.
 
 ***Important note***: *The generated report has to be hosted locally and MUST NOT be internet accessible*
 
-This version of Service Screener may not compatible with the Greater China region. Our community folks have made it work [here](https://github.com/lijh-aws-tools/service-screener-cn). 
+This version of QuadraRecon may not compatible with the Greater China region. Our community folks have made it work [here](https://github.com/lijh-aws-tools/service-screener-cn). 
 
 ## Overview
-Service Screener is a tool that runs automated checks on AWS environments and provides recommendations based on AWS and community best practices. 
+QuadraRecon is a tool that runs automated checks on AWS environments and provides recommendations based on AWS and community best practices. 
 
 AWS customers can use this tool on their own environments and use the recommendations to improve the Security, Reliability, Operational Excellence, Performance Efficiency and Cost Optimisation at the service level. 
 
 This tool aims to complement the [AWS Well Architected Tool](https://aws.amazon.com/well-architected-tool/). 
 
 ## How does it work?
-Service Screener uses [AWS CloudShell](https://aws.amazon.com/cloudshell/), a free service that provides a browser-based shell to run scripts using the AWS CLI. It runs multiple `describe` and `get` API calls to determine the configuration of your environment.
+QuadraRecon uses [AWS CloudShell](https://aws.amazon.com/cloudshell/), a free service that provides a browser-based shell to run scripts using the AWS CLI. It runs multiple `describe` and `get` API calls to determine the configuration of your environment.
 
 ## How much does it cost?
 Running this tool is free as it is covered under the AWS Free Tier. If you have exceeded the free tier limits, each run will cost less than $0.01.
@@ -30,7 +30,7 @@ Running this tool is free as it is covered under the AWS Free Tier. If you have 
 4. (Optional) If you need to run cross-account operations, additional permissions are required:
    - iam:SetSecurityTokenServicePreferences
 
-## Installing service-screener V2
+## Installing QuadraRecon
 1. [Log in to your AWS account](https://docs.aws.amazon.com/cloudshell/latest/userguide/getting-started.html#start-session) using the IAM User with sufficient permissions described above. 
 2. Launch [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/getting-started.html#launch-region-shell) in any region. 
 3. In the AWS CloudShell terminal, run this script this to install the dependencies:
@@ -40,17 +40,17 @@ Running this tool is free as it is covered under the AWS Free Tier. If you have 
    source bin/activate
    python3 -m pip install --upgrade pip
    rm -rf service-screener-v2
-   git clone https://github.com/aws-samples/service-screener-v2.git
+   git clone https://github.com/surya2143git/service-screener-v2.git
    cd service-screener-v2
    pip install -r requirements.txt
    python3 unzip_botocore_lambda_runtime.py
    alias screener='python3 $(pwd)/main.py'
    ```
 
-## Using Service Screener
-When running Service Screener, you will need to specify the regions and services you would like it to run on. For the full list of services currently supported, please see "SERVICES_IDENTIFIER_MAPPING" in [Config.py](./utils/Config.py).
+## Using QuadraRecon
+When running QuadraRecon, you will need to specify the regions and services you would like it to run on. For the full list of services currently supported, please see "SERVICES_IDENTIFIER_MAPPING" in [Config.py](./utils/Config.py).
 
-We recommend running it in all regions where you have workloads deployed in. Adjust the commands below to suit your needs then copy and paste it into CloudShell to run Service Screener. 
+We recommend running it in all regions where you have workloads deployed in. Adjust the commands below to suit your needs then copy and paste it into CloudShell to run QuadraRecon. 
 
 **Example 1: (Recommended) Run in the Singapore region, check all services with beta features enabled**
 ``` bash
@@ -203,7 +203,7 @@ Besides the HTML report, you can also find two JSON files that record the findin
 - `api-raw.json`: Contains the raw findings
 - `api-full.json`: Contains the full results in JSON format
 
-## Contributing to service-screener
+## Contributing to QuadraRecon
 We encourage public contributions! Please review [CONTRIBUTING](./CONTRIBUTING.md) for details on our code of conduct and development process.
 
 ## Development Guide

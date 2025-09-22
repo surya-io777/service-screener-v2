@@ -10,7 +10,7 @@ class Config:
     }
 
     ADVISOR = {
-        'TITLE': 'Service Screener',
+        'TITLE': 'QuadraRecon',
         'VERSION': '2.4.0',
         'LAST_UPDATE': '30-Jun-2025'
     }

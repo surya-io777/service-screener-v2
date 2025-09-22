@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Source .bashrc to ensure environment variables are available
-. ~/.bashr
+. ~/.bashrc
 
 # Change to the service-screener-v2 directory
 cd service-screener-v2
