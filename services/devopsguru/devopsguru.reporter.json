@@ -1,0 +1,54 @@
+{
+	"DevOpsGuruEnabled": {
+		"category": "O",
+		"^description": "Amazon DevOps Guru is not enabled. DevOps Guru is a machine learning (ML) powered service that makes it easy to improve an application's operational performance and availability. DevOps Guru detects behaviors that deviate from normal operating patterns so you can identify operational issues long before they impact your customers.",
+		"shortDesc": "Enable Amazon DevOps Guru",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Getting Started with DevOps Guru]<https://docs.aws.amazon.com/devops-guru/latest/userguide/getting-started.html>"
+		]
+	},
+	"OpsCenterIntegration": {
+		"category": "O",
+		"^description": "DevOps Guru OpsCenter integration is not enabled. When enabled, DevOps Guru creates OpsItems in Systems Manager OpsCenter for each insight, making it easier to manage and track operational issues.",
+		"shortDesc": "Enable OpsCenter integration",
+		"criticality": "L",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[DevOps Guru OpsCenter Integration]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-opscenter.html>"
+		]
+	},
+	"ResourceCollection": {
+		"category": "O",
+		"^description": "No resources are configured for DevOps Guru monitoring. You need to specify which AWS resources you want DevOps Guru to analyze by configuring resource collections.",
+		"shortDesc": "Configure resource collections",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Specifying Resources to Analyze]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-resource-collections.html>"
+		]
+	},
+	"OpenInsights": {
+		"category": "O",
+		"^description": "There are open DevOps Guru insights that require attention. These insights indicate potential operational issues that should be investigated and resolved.",
+		"shortDesc": "Review and resolve open insights",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 1,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Working with Insights]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html>"
+		]
+	}
+}

@@ -1,0 +1,54 @@
+{
+	"ConfigEnabled": {
+		"category": "S",
+		"^description": "AWS Config is not enabled in this region. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time.",
+		"shortDesc": "Enable AWS Config",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Getting Started with AWS Config]<https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html>"
+		]
+	},
+	"ConfigRecording": {
+		"category": "S",
+		"^description": "AWS Config configuration recorder is not recording. The configuration recorder records the configurations of the supported AWS resources in your account as configuration items.",
+		"shortDesc": "Enable Config recording",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Managing the Configuration Recorder]<https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html>"
+		]
+	},
+	"DeliveryChannel": {
+		"category": "S",
+		"^description": "No delivery channel is configured for AWS Config. A delivery channel provides access to the configuration history files and configuration snapshot files that AWS Config creates.",
+		"shortDesc": "Configure delivery channel",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Managing the Delivery Channel]<https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html>"
+		]
+	},
+	"ConfigRules": {
+		"category": "S",
+		"^description": "No AWS Config rules are configured. Config rules represent your ideal configuration settings and evaluate whether your AWS resources comply with your configuration policies.",
+		"shortDesc": "Configure Config rules",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[AWS Config Rules]<https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>"
+		]
+	}
+}

@@ -1,0 +1,54 @@
+{
+	"QueryLogging": {
+		"category": "SO",
+		"^description": "Query logging is not enabled for this Route 53 hosted zone. Query logging provides detailed logs of the queries that Route 53 receives, which can be useful for security monitoring, troubleshooting, and compliance purposes.",
+		"shortDesc": "Enable Route 53 query logging",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Configuring Query Logging]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html>"
+		]
+	},
+	"DNSSEC": {
+		"category": "S",
+		"^description": "DNSSEC is not enabled for this Route 53 hosted zone. DNSSEC provides authentication for DNS responses, helping to prevent DNS spoofing and cache poisoning attacks.",
+		"shortDesc": "Enable DNSSEC signing",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 1,
+		"ref": [
+			"[Configuring DNSSEC]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html>"
+		]
+	},
+	"HealthChecks": {
+		"category": "R",
+		"^description": "No health checks are configured for DNS records in this hosted zone. Health checks can improve availability by automatically routing traffic away from unhealthy endpoints.",
+		"shortDesc": "Configure health checks for DNS records",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Creating Health Checks]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating.html>"
+		]
+	},
+	"PrivateZoneVPCs": {
+		"category": "R",
+		"^description": "This private hosted zone is associated with only one VPC. Consider associating it with multiple VPCs if you need DNS resolution across multiple VPCs for redundancy and availability.",
+		"shortDesc": "Associate with multiple VPCs",
+		"criticality": "L",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Working with Private Hosted Zones]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html>"
+		]
+	}
+}

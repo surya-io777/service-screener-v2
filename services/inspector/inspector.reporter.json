@@ -1,0 +1,80 @@
+{
+	"InspectorEnabled": {
+		"category": "S",
+		"^description": "Amazon Inspector is not enabled. Inspector is an automated vulnerability management service that continually scans AWS workloads for software vulnerabilities and unintended network exposure. Inspector automatically discovers and scans Amazon EC2 instances and container images residing in Amazon ECR for software vulnerabilities and unintended network exposure.",
+		"shortDesc": "Enable Amazon Inspector",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Getting Started with Inspector]<https://docs.aws.amazon.com/inspector/latest/user/getting_started_tutorial.html>"
+		]
+	},
+	"EC2Scanning": {
+		"category": "S",
+		"^description": "Inspector EC2 scanning is not enabled. EC2 scanning helps identify software vulnerabilities in your EC2 instances by scanning the operating system and installed applications.",
+		"shortDesc": "Enable EC2 scanning",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[EC2 Scanning]<https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html>"
+		]
+	},
+	"ECRScanning": {
+		"category": "S",
+		"^description": "Inspector ECR scanning is not enabled. ECR scanning helps identify software vulnerabilities in your container images stored in Amazon ECR repositories.",
+		"shortDesc": "Enable ECR scanning",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[ECR Scanning]<https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html>"
+		]
+	},
+	"CriticalFindings": {
+		"category": "S",
+		"^description": "Critical security findings have been identified by Inspector. These findings represent severe vulnerabilities that should be addressed immediately to prevent potential security breaches.",
+		"shortDesc": "Address critical security findings",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Understanding Findings]<https://docs.aws.amazon.com/inspector/latest/user/findings-understanding.html>"
+		]
+	},
+	"HighFindings": {
+		"category": "S",
+		"^description": "High severity security findings have been identified by Inspector. These findings represent significant vulnerabilities that should be addressed promptly.",
+		"shortDesc": "Address high severity findings",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Remediating Findings]<https://docs.aws.amazon.com/inspector/latest/user/findings-remediation.html>"
+		]
+	},
+	"CoverageStats": {
+		"category": "S",
+		"^description": "No resources are being scanned by Inspector. Ensure that your EC2 instances and ECR repositories are properly configured for scanning.",
+		"shortDesc": "Configure resources for scanning",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Managing Coverage]<https://docs.aws.amazon.com/inspector/latest/user/coverage.html>"
+		]
+	}
+}

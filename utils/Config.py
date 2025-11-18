@@ -24,7 +24,8 @@ class Config:
 
     GLOBAL_SERVICES = [
         'iam',
-        'cloudfront'
+        'cloudfront',
+        'route53'
     ]
     
     KEYWORD_SERVICES = [

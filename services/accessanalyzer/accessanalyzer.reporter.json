@@ -1,0 +1,54 @@
+{
+	"AccessAnalyzerEnabled": {
+		"category": "S",
+		"^description": "AWS IAM Access Analyzer is not enabled. Access Analyzer helps identify resources in your organization and accounts that are shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.",
+		"shortDesc": "Enable IAM Access Analyzer",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Getting Started with Access Analyzer]<https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html>"
+		]
+	},
+	"AnalyzerStatus": {
+		"category": "S",
+		"^description": "Access Analyzer is not in active status. An inactive analyzer will not generate findings for new or updated resources.",
+		"shortDesc": "Activate Access Analyzer",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Managing Access Analyzers]<https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html>"
+		]
+	},
+	"PublicFindings": {
+		"category": "S",
+		"^description": "Access Analyzer has identified resources that are publicly accessible. Public access to resources can lead to unintended data exposure and should be reviewed immediately.",
+		"shortDesc": "Review publicly accessible resources",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Reviewing Findings]<https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-findings.html>"
+		]
+	},
+	"AccessFindings": {
+		"category": "S",
+		"^description": "Access Analyzer has identified resources with external access. These findings should be reviewed to ensure the access is intended and follows the principle of least privilege.",
+		"shortDesc": "Review external access findings",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Working with Findings]<https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-findings.html>"
+		]
+	}
+}

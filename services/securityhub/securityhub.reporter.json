@@ -1,0 +1,93 @@
+{
+	"SecurityHubEnabled": {
+		"category": "S",
+		"^description": "AWS Security Hub is not enabled. Security Hub provides a comprehensive view of your security alerts and security posture across your AWS accounts. It aggregates, organizes, and prioritizes security findings from multiple AWS security services and third-party tools.",
+		"shortDesc": "Enable AWS Security Hub",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Getting Started with Security Hub]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html>"
+		]
+	},
+	"AutoEnableControls": {
+		"category": "S",
+		"^description": "Auto-enable controls is not configured in Security Hub. This feature automatically enables new controls when they are added to enabled standards, ensuring comprehensive security coverage.",
+		"shortDesc": "Configure auto-enable controls",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Auto-enabling Controls]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html>"
+		]
+	},
+	"SecurityStandards": {
+		"category": "S",
+		"^description": "No security standards are enabled in Security Hub. Security standards provide a set of controls that evaluate your AWS resources for compliance with security best practices and industry standards.",
+		"shortDesc": "Enable security standards",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Security Standards]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html>"
+		]
+	},
+	"AWSFoundationalStandard": {
+		"category": "S",
+		"^description": "AWS Foundational Security Standard is not enabled. This standard includes controls that evaluate AWS resources against security best practices and is recommended for all AWS accounts.",
+		"shortDesc": "Enable AWS Foundational Security Standard",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[AWS Foundational Security Standard]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-fsbp.html>"
+		]
+	},
+	"CISStandard": {
+		"category": "S",
+		"^description": "CIS AWS Foundations Benchmark is not enabled. This standard provides security configuration best practices for AWS and is widely recognized in the industry.",
+		"shortDesc": "Enable CIS AWS Foundations Benchmark",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[CIS AWS Foundations Benchmark]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html>"
+		]
+	},
+	"CriticalFindings": {
+		"category": "S",
+		"^description": "Critical security findings have been identified in Security Hub. These findings represent severe security issues that should be addressed immediately.",
+		"shortDesc": "Address critical security findings",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Working with Findings]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html>"
+		]
+	},
+	"HighFindings": {
+		"category": "S",
+		"^description": "High severity security findings have been identified in Security Hub. These findings represent significant security issues that should be addressed promptly.",
+		"shortDesc": "Address high severity findings",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Remediating Findings]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-remediation.html>"
+		]
+	}
+}
