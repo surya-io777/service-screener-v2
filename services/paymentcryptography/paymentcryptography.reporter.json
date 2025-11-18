@@ -1,0 +1,54 @@
+{
+	"ServiceEnabled": {
+		"category": "S",
+		"^description": "AWS Payment Cryptography service is not enabled or accessible. This service provides payment processing cryptographic operations in a secure, compliant environment for payment card industry workloads.",
+		"shortDesc": "Enable Payment Cryptography service",
+		"criticality": "I",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Getting Started with Payment Cryptography]<https://docs.aws.amazon.com/payment-cryptography/latest/userguide/getting-started.html>"
+		]
+	},
+	"KeyState": {
+		"category": "S",
+		"^description": "Payment cryptography key is not in the expected CREATE_COMPLETE state. Keys in other states may not be available for cryptographic operations.",
+		"shortDesc": "Review key state",
+		"criticality": "H",
+		"downtime": 1,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Key States]<https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-manage.html>"
+		]
+	},
+	"KeyUsage": {
+		"category": "S",
+		"^description": "Payment cryptography key does not have properly defined usage restrictions. Key usage should be clearly defined to ensure keys are only used for their intended cryptographic operations.",
+		"shortDesc": "Define key usage restrictions",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Key Usage]<https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-create.html>"
+		]
+	},
+	"KeyAlias": {
+		"category": "O",
+		"^description": "Payment cryptography key does not have an alias. Aliases make it easier to manage and reference keys in applications and provide better operational visibility.",
+		"shortDesc": "Create key alias",
+		"criticality": "L",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Managing Key Aliases]<https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-manage.html>"
+		]
+	}
+}

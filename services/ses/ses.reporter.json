@@ -1,0 +1,80 @@
+{
+	"DKIMSigning": {
+		"category": "S",
+		"^description": "DKIM signing is not enabled for this email identity. DKIM (DomainKeys Identified Mail) helps prevent email spoofing and improves email deliverability by providing cryptographic authentication.",
+		"shortDesc": "Enable DKIM signing",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Authenticating Email with DKIM]<https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim.html>"
+		]
+	},
+	"DKIMStatus": {
+		"category": "S",
+		"^description": "DKIM authentication is not in SUCCESS status. This may indicate DNS configuration issues that could affect email deliverability and authentication.",
+		"shortDesc": "Fix DKIM DNS configuration",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 1,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Troubleshooting DKIM]<https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-troubleshooting.html>"
+		]
+	},
+	"MailFromDomain": {
+		"category": "S",
+		"^description": "Custom MAIL FROM domain is not configured. Using a custom MAIL FROM domain improves email deliverability and provides better control over the email sending reputation.",
+		"shortDesc": "Configure custom MAIL FROM domain",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Using Custom MAIL FROM Domain]<https://docs.aws.amazon.com/ses/latest/dg/mail-from.html>"
+		]
+	},
+	"SendingEnabled": {
+		"category": "O",
+		"^description": "Account sending is disabled for SES. This prevents any emails from being sent from this account.",
+		"shortDesc": "Enable account sending",
+		"criticality": "H",
+		"downtime": 1,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Managing Sending Authorization]<https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html>"
+		]
+	},
+	"TLSPolicy": {
+		"category": "S",
+		"^description": "TLS is not required for email delivery. Requiring TLS ensures that emails are transmitted securely and helps protect against man-in-the-middle attacks.",
+		"shortDesc": "Require TLS for email delivery",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Email Security]<https://docs.aws.amazon.com/ses/latest/dg/security.html>"
+		]
+	},
+	"SandboxMode": {
+		"category": "O",
+		"^description": "SES account appears to be in sandbox mode with limited sending capabilities. In sandbox mode, you can only send emails to verified addresses and have low sending limits.",
+		"shortDesc": "Request production access",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Moving Out of Sandbox]<https://docs.aws.amazon.com/ses/latest/dg/request-production-access.html>"
+		]
+	}
+}

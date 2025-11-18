@@ -1,0 +1,67 @@
+{
+	"SessionManager": {
+		"category": "S",
+		"^description": "AWS Systems Manager Session Manager is not properly configured. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys.",
+		"shortDesc": "Configure Session Manager",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Setting Up Session Manager]<https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html>"
+		]
+	},
+	"PatchCompliance": {
+		"category": "S",
+		"^description": "Some instances have patch compliance issues. Keeping instances up to date with security patches is critical for maintaining a secure environment.",
+		"shortDesc": "Address patch compliance issues",
+		"criticality": "H",
+		"downtime": 1,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Patch Manager]<https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html>"
+		]
+	},
+	"InsecureParameters": {
+		"category": "S",
+		"^description": "Parameter Store contains parameters that may contain sensitive data but are stored as plain text strings. Sensitive data should be stored using SecureString type with KMS encryption.",
+		"shortDesc": "Encrypt sensitive parameters",
+		"criticality": "H",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 1,
+		"ref": [
+			"[Parameter Store SecureString]<https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-securestring.html>"
+		]
+	},
+	"ManagedInstances": {
+		"category": "O",
+		"^description": "No instances are managed by Systems Manager. Managing instances with Systems Manager provides better visibility, control, and automation capabilities.",
+		"shortDesc": "Enable Systems Manager on instances",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Setting Up Systems Manager]<https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html>"
+		]
+	},
+	"OfflineInstances": {
+		"category": "O",
+		"^description": "Some managed instances are offline and cannot receive Systems Manager commands. This may indicate connectivity issues or agent problems.",
+		"shortDesc": "Investigate offline instances",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 1,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[Troubleshooting SSM Agent]<https://docs.aws.amazon.com/systems-manager/latest/userguide/troubleshooting-ssm-agent.html>"
+		]
+	}
+}
