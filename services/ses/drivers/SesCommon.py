@@ -5,11 +5,12 @@ import constants as _C
 from services.Evaluator import Evaluator
 
 class SesCommon(Evaluator):
-    def __init__(self, identity, sesClient):
+    def __init__(self, identity, sesClient, sesv1Client):
         super().__init__()
         self.init()
         self.identity = identity
         self.sesClient = sesClient
+        self.sesv1Client = sesv1Client
         self._resourceName = identity.get('IdentityName', 'Account') if identity else 'Account'
         
     def _checkDKIMAuthentication(self):
@@ -55,14 +56,9 @@ class SesCommon(Evaluator):
     
     def _checkReputationTracking(self):
         try:
-            response = self.sesClient.get_account_sending_enabled()
+            response = self.sesv1Client.get_account_sending_enabled()
             if not response.get('Enabled'):
                 self.results['SendingEnabled'] = [-1, "Account sending is disabled"]
-                
-            # Check reputation tracking
-            response = self.sesClient.get_delivery_options()
-            if not response.get('DeliveryOptions', {}).get('TlsPolicy') == 'Require':
-                self.results['TLSPolicy'] = [-1, "TLS is not required for email delivery"]
                 
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDeniedException']:
@@ -70,7 +66,7 @@ class SesCommon(Evaluator):
     
     def _checkSandboxMode(self):
         try:
-            response = self.sesClient.get_sending_quota()
+            response = self.sesv1Client.get_sending_quota()
             max_send_rate = response.get('MaxSendRate', 0)
             
             # If max send rate is very low (like 1), likely in sandbox

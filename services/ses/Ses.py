@@ -10,6 +10,7 @@ class Ses(Service):
         super().__init__(region)
         ssBoto = self.ssBoto
         self.sesClient = ssBoto.client('sesv2', config=self.bConfig)
+        self.sesv1Client = ssBoto.client('ses', config=self.bConfig)
         
     def getResources(self):
         arr = []
@@ -27,7 +28,7 @@ class Ses(Service):
         identities = self.getResources()
         if not identities:
             # Create a placeholder for account-level checks
-            obj = SesCommon({}, self.sesClient)
+            obj = SesCommon({}, self.sesClient, self.sesv1Client)
             obj.run(self.__class__)
             objs['SES::Account'] = obj.getInfo()
             del obj
@@ -35,7 +36,7 @@ class Ses(Service):
             for identity in identities:
                 identity_name = identity.get('IdentityName', 'Unknown')
                 print('... (SES) inspecting ' + identity_name)
-                obj = SesCommon(identity, self.sesClient)
+                obj = SesCommon(identity, self.sesClient, self.sesv1Client)
                 obj.run(self.__class__)
                 objs[f"SES::{identity_name}"] = obj.getInfo()
                 del obj

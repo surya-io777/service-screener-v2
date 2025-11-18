@@ -34,6 +34,8 @@ class PaymentcryptographyCommon(Evaluator):
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDeniedException']:
                 self.results['KeyRotationCheck'] = [-1, f"Unable to check key details: {str(e)}"]
+        except Exception as e:
+            self.results['KeyRotationCheck'] = [-1, f"Unable to check key details: {str(e)}"]
     
     def _checkKeyAccess(self):
         if not self.key:
@@ -53,6 +55,8 @@ class PaymentcryptographyCommon(Evaluator):
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDeniedException']:
                 self.results['KeyAccessCheck'] = [-1, f"Unable to check key access: {str(e)}"]
+        except Exception as e:
+            self.results['KeyAccessCheck'] = [-1, f"Unable to check key access: {str(e)}"]
     
     def _checkServiceEnabled(self):
         if self.key:
@@ -68,3 +72,5 @@ class PaymentcryptographyCommon(Evaluator):
                 self.results['ServiceEnabled'] = [-1, "Payment Cryptography service is not enabled or accessible"]
             else:
                 self.results['ServiceEnabledCheck'] = [-1, f"Unable to check service status: {str(e)}"]
+        except Exception as e:
+            self.results['ServiceEnabledCheck'] = [-1, f"Unable to check service status: {str(e)}"]

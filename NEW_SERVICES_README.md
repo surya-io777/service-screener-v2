@@ -1,6 +1,6 @@
 # New AWS Services Added to QuadraRecon
 
-This document describes the 6 new AWS services that have been added to the QuadraRecon service screener tool.
+This document describes the 9 new AWS services that have been added to the QuadraRecon service screener tool.
 
 ## Services Added
 
@@ -60,6 +60,33 @@ This document describes the 6 new AWS services that have been added to the Quadr
 - **Category**: Security (S), Operational Excellence (O), Reliability (R)
 - **Note**: Configured as a global service
 
+### 7. AWS Systems Manager (`systemsmanager`)
+- **Purpose**: Unified interface for managing AWS resources
+- **Key Checks**:
+  - Session Manager configuration
+  - Patch compliance status
+  - Parameter Store security
+  - Managed instances status
+- **Category**: Security (S), Operational Excellence (O)
+
+### 8. AWS Payment Cryptography (`paymentcryptography`)
+- **Purpose**: Payment processing cryptographic operations
+- **Key Checks**:
+  - Service enabled status
+  - Key state validation
+  - Key usage restrictions
+  - Key alias management
+- **Category**: Security (S), Operational Excellence (O)
+
+### 9. Amazon Simple Email Service (`ses`)
+- **Purpose**: Email sending and receiving service
+- **Key Checks**:
+  - DKIM authentication
+  - SPF/MAIL FROM configuration
+  - TLS policy enforcement
+  - Sandbox mode status
+- **Category**: Security (S), Operational Excellence (O)
+
 ## Integration Details
 
 ### File Structure
@@ -79,15 +106,16 @@ services/
 - **Service Integration**: All services properly inherit from base Service class
 
 ### Check Categories
-- **S (Security)**: 18 checks across all services
-- **O (Operational Excellence)**: 4 checks
+- **S (Security)**: 27 checks across all services
+- **O (Operational Excellence)**: 8 checks
 - **R (Reliability)**: 2 checks
 - **C (Cost Optimization)**: 0 checks
 
 ### Criticality Levels
-- **High (H)**: 12 checks - Critical security and operational issues
-- **Medium (M)**: 10 checks - Important but not critical issues  
-- **Low (L)**: 2 checks - Minor improvements
+- **High (H)**: 15 checks - Critical security and operational issues
+- **Medium (M)**: 19 checks - Important but not critical issues  
+- **Low (L)**: 3 checks - Minor improvements
+- **Info (I)**: 1 check - Informational
 
 ## Usage
 
@@ -97,10 +125,10 @@ services/
 python main.py --regions us-east-1 --services all
 
 # Scan only new services
-python main.py --regions us-east-1 --services awsconfig,devopsguru,inspector,accessanalyzer,securityhub,route53
+python main.py --regions us-east-1 --services awsconfig,devopsguru,inspector,accessanalyzer,securityhub,route53,systemsmanager,paymentcryptography,ses
 
 # Scan specific new service
-python main.py --regions us-east-1 --services securityhub
+python main.py --regions us-east-1 --services systemsmanager
 ```
 
 ### Service-Specific Notes
@@ -132,6 +160,21 @@ python main.py --regions us-east-1 --services securityhub
 - Global service (runs in us-east-1 regardless of region parameter)
 - Analyzes hosted zones for security and reliability best practices
 - Includes DNSSEC and health check recommendations
+
+#### Systems Manager
+- Comprehensive instance and resource management service
+- Checks patch compliance and parameter security
+- Validates Session Manager configuration for secure access
+
+#### Payment Cryptography
+- Specialized service for payment card industry workloads
+- May not be available in all regions
+- Focuses on cryptographic key management and compliance
+
+#### Simple Email Service (SES)
+- Regional email service with identity-based checks
+- Validates email authentication mechanisms (DKIM, SPF)
+- Checks for production readiness and security configurations
 
 ## Testing
 

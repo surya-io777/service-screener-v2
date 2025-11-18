@@ -24,6 +24,9 @@ class AwsconfigCommon(Evaluator):
             )
             if not status['ConfigurationRecordersStatus'][0]['recording']:
                 self.results['ConfigRecording'] = [-1, f"Configuration recorder {self.recorder['name']} is not recording"]
+        except botocore.exceptions.ClientError as e:
+            if e.response['Error']['Code'] not in ['AccessDeniedException']:
+                self.results['ConfigRecording'] = [-1, f"Unable to check recording status: {str(e)}"]
         except Exception as e:
             self.results['ConfigRecording'] = [-1, f"Unable to check recording status: {str(e)}"]
     
@@ -32,6 +35,9 @@ class AwsconfigCommon(Evaluator):
             channels = self.configClient.describe_delivery_channels()
             if not channels.get('DeliveryChannels'):
                 self.results['DeliveryChannel'] = [-1, "No delivery channel configured"]
+        except botocore.exceptions.ClientError as e:
+            if e.response['Error']['Code'] not in ['AccessDeniedException']:
+                self.results['DeliveryChannel'] = [-1, f"Unable to check delivery channels: {str(e)}"]
         except Exception as e:
             self.results['DeliveryChannel'] = [-1, f"Unable to check delivery channels: {str(e)}"]
     
@@ -43,5 +49,8 @@ class AwsconfigCommon(Evaluator):
                 self.results['ConfigRules'] = [-1, "No Config rules configured"]
             else:
                 self.results['ConfigRulesCount'] = [1, f"{rule_count} Config rules configured"]
+        except botocore.exceptions.ClientError as e:
+            if e.response['Error']['Code'] not in ['AccessDeniedException']:
+                self.results['ConfigRules'] = [-1, f"Unable to check Config rules: {str(e)}"]
         except Exception as e:
             self.results['ConfigRules'] = [-1, f"Unable to check Config rules: {str(e)}"]

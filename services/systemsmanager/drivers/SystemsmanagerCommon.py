@@ -14,7 +14,7 @@ class SystemsmanagerCommon(Evaluator):
         
     def _checkSessionManager(self):
         try:
-            response = self.ssmClient.describe_document_permission(
+            response = self.ssmClient.describe_document(
                 Name='SSM-SessionManagerRunShell'
             )
             # If document exists, Session Manager is available
@@ -24,11 +24,21 @@ class SystemsmanagerCommon(Evaluator):
     
     def _checkPatchCompliance(self):
         try:
-            response = self.ssmClient.describe_instance_patch_states()
-            instances = response.get('InstancePatchStates', [])
+            # First get managed instances
+            instances_response = self.ssmClient.describe_instance_information()
+            instances = instances_response.get('InstanceInformationList', [])
             
-            non_compliant = [i for i in instances if i.get('OperationEndTime') and 
-                           i.get('FailedCount', 0) > 0]
+            if not instances:
+                return  # No instances to check
+                
+            instance_ids = [i['InstanceId'] for i in instances[:10]]  # Limit to 10 instances
+            
+            response = self.ssmClient.describe_instance_patch_states(
+                InstanceIds=instance_ids
+            )
+            patch_states = response.get('InstancePatchStates', [])
+            
+            non_compliant = [i for i in patch_states if i.get('FailedCount', 0) > 0]
             
             if non_compliant:
                 self.results['PatchCompliance'] = [-1, f"{len(non_compliant)} instances have patch compliance issues"]
@@ -36,6 +46,8 @@ class SystemsmanagerCommon(Evaluator):
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDeniedException']:
                 self.results['PatchComplianceCheck'] = [-1, f"Unable to check patch compliance: {str(e)}"]
+        except Exception as e:
+            self.results['PatchComplianceCheck'] = [-1, f"Unable to check patch compliance: {str(e)}"]
     
     def _checkParameterStore(self):
         try:
@@ -53,6 +65,8 @@ class SystemsmanagerCommon(Evaluator):
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDeniedException']:
                 self.results['ParameterStoreCheck'] = [-1, f"Unable to check Parameter Store: {str(e)}"]
+        except Exception as e:
+            self.results['ParameterStoreCheck'] = [-1, f"Unable to check Parameter Store: {str(e)}"]
     
     def _checkManagedInstances(self):
         try:
@@ -69,3 +83,5 @@ class SystemsmanagerCommon(Evaluator):
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDeniedException']:
                 self.results['ManagedInstancesCheck'] = [-1, f"Unable to check managed instances: {str(e)}"]
+        except Exception as e:
+            self.results['ManagedInstancesCheck'] = [-1, f"Unable to check managed instances: {str(e)}"]
