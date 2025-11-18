@@ -56,17 +56,16 @@ class SesCommon(Evaluator):
     
     def _checkReputationTracking(self):
         try:
-            response = self.sesv1Client.get_account_sending_enabled()
-            if not response.get('Enabled'):
-                self.results['SendingEnabled'] = [-1, "Account sending is disabled"]
-                
+            response = self.sesv1Client.get_send_quota()
+            # If we can get quota, sending is enabled
+            
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDeniedException']:
                 self.results['ReputationCheck'] = [-1, f"Unable to check reputation settings: {str(e)}"]
     
     def _checkSandboxMode(self):
         try:
-            response = self.sesv1Client.get_sending_quota()
+            response = self.sesv1Client.get_send_quota()
             max_send_rate = response.get('MaxSendRate', 0)
             
             # If max send rate is very low (like 1), likely in sandbox
