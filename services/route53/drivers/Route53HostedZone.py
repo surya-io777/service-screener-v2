@@ -25,7 +25,7 @@ class Route53HostedZone(Evaluator):
                 
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDenied']:
-                self.results['QueryLoggingCheck'] = [-1, f"Unable to check query logging: {str(e)}"]
+                self.results['QueryLogging'] = [-1, f"Unable to check query logging: {str(e)}"]
     
     def _checkDNSSEC(self):
         try:
@@ -40,7 +40,7 @@ class Route53HostedZone(Evaluator):
             if e.response['Error']['Code'] == 'DNSSECNotFound':
                 self.results['DNSSEC'] = [-1, "DNSSEC is not enabled for this hosted zone"]
             elif e.response['Error']['Code'] not in ['AccessDenied']:
-                self.results['DNSSECCheck'] = [-1, f"Unable to check DNSSEC: {str(e)}"]
+                self.results['DNSSEC'] = [-1, f"Unable to check DNSSEC: {str(e)}"]
     
     def _checkHealthChecks(self):
         try:
@@ -62,7 +62,7 @@ class Route53HostedZone(Evaluator):
                     
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDenied']:
-                self.results['HealthChecksCheck'] = [-1, f"Unable to check health checks: {str(e)}"]
+                self.results['HealthChecks'] = [-1, f"Unable to check health checks: {str(e)}"]
     
     def _checkPrivateZoneVPCs(self):
         if not self.hosted_zone.get('Config', {}).get('PrivateZone'):
@@ -78,4 +78,4 @@ class Route53HostedZone(Evaluator):
                 
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] not in ['AccessDenied']:
-                self.results['PrivateZoneVPCsCheck'] = [-1, f"Unable to check VPC associations: {str(e)}"]
+                self.results['PrivateZoneVPCs'] = [-1, f"Unable to check VPC associations: {str(e)}"]

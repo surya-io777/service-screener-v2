@@ -1,0 +1,67 @@
+{
+	"TracingEnabled": {
+		"category": "O",
+		"^description": "No services are sending traces to AWS X-Ray. X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors.",
+		"shortDesc": "Enable X-Ray tracing for applications",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[Getting Started with X-Ray]<https://docs.aws.amazon.com/xray/latest/devguide/xray-gettingstarted.html>"
+		]
+	},
+	"EncryptionConfig": {
+		"category": "S",
+		"^description": "X-Ray traces are not encrypted with AWS KMS. Encrypting traces at rest helps protect sensitive information that may be contained in trace data, such as user information, request parameters, and response data.",
+		"shortDesc": "Enable KMS encryption for X-Ray traces",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[X-Ray Encryption]<https://docs.aws.amazon.com/xray/latest/devguide/xray-console-encryption.html>"
+		]
+	},
+	"SamplingRules": {
+		"category": "C",
+		"^description": "No custom sampling rules are configured for X-Ray. Sampling rules control the amount of data that X-Ray records, helping you manage costs while ensuring you capture enough data for analysis.",
+		"shortDesc": "Configure X-Ray sampling rules",
+		"criticality": "L",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 0,
+		"needFullTest": 0,
+		"ref": [
+			"[X-Ray Sampling Rules]<https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html>"
+		]
+	},
+	"HighSamplingRate": {
+		"category": "C",
+		"^description": "Some X-Ray sampling rules have high sampling rates (>50%). High sampling rates can lead to increased costs and may not be necessary for all applications. Consider adjusting sampling rates based on your analysis needs.",
+		"shortDesc": "Review high sampling rates",
+		"criticality": "L",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": -1,
+		"needFullTest": 0,
+		"ref": [
+			"[Optimizing Sampling]<https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html>"
+		]
+	},
+	"InsightsEnabled": {
+		"category": "O",
+		"^description": "X-Ray Insights is not enabled. Insights analyzes trace data to identify emerging issues in your applications, helping you proactively address performance problems before they impact users.",
+		"shortDesc": "Enable X-Ray Insights",
+		"criticality": "M",
+		"downtime": 0,
+		"slowness": 0,
+		"additionalCost": 1,
+		"needFullTest": 0,
+		"ref": [
+			"[X-Ray Insights]<https://docs.aws.amazon.com/xray/latest/devguide/xray-insights.html>"
+		]
+	}
+}
